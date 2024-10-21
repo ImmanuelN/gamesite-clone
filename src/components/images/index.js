@@ -1,0 +1,13 @@
+export {default as actionIcon} from '../images/sword.svg';
+export {default as horrorIcon} from '../images/ghost.svg';
+export {default as adventureIcon} from '../images/map.svg';
+export {default as fangamesIcon} from '../images/sprout.svg';
+export {default as rpgIcon} from '../images/book-marked.svg';
+export {default as multiplayerIcon} from '../images/users.svg';
+export {default as singleplayerIcon} from '../images/user.svg';
+export {default as retroIcon} from '../images/bot.svg';
+export {default as otherIcon} from '../images/gamepad-2.svg';
+export {default as vrIcon} from '../images/glasses.svg';
+export {default as sportIcon} from '../images/land-plot.svg';
+export {default as arcadeIcon} from '../images/qr-code.svg';
+export {default as survivalIcon} from '../images/pickaxe.svg';

@@ -1,0 +1,87 @@
+.navbar-background{
+    background-color: #121015;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.navbar-inside{
+    padding: 0px;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.left-side{
+    display: flex;
+    justify-content: space-between;
+    
+    padding-left: 20px;
+    width: 40px;
+}
+
+.right-side{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.logo{
+    height: 30px;
+    color: white;
+}
+
+.menu{
+    font-weight:bold;
+    font-size: 30px;
+}
+
+.SearchBar{
+    margin: 5px;
+    padding-left: 20px;
+    border-radius: 6px;
+    width: 552px;
+    height: 36px;
+    background-color: #2A2731;
+    font-size: medium;
+    color: #7B7883;
+    border: none;
+}
+
+.nav-buttons{
+    background-color:#121015;
+    color: #7B7883;
+    width: 90px;
+    height: 56px;
+    border: none;
+    transition: 0.1s ease-out;
+    align-items: center;
+    font-size: large;
+}
+
+.nav-buttons:hover{
+    border-bottom: #7B7883 1px solid;
+}
+
+.nav-buttons-logo{
+    background-color:#121015;
+    color: #7B7883;
+    width: 140px;
+    height: 56px;
+    border: none;
+}
+
+.nav-buttons-logo:hover{
+    border-bottom: #7B7883 1px solid;
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    gap: 4px;
+}
