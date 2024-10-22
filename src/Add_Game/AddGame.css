@@ -1,63 +1,66 @@
-.main-page{
+.main-page {
     padding-top: 65px;
     padding-bottom: 65px;
     color: #9f9bac;
+    height: auto;
+    background-color: #2A2731;
 }
 
-.mid-section{
+.mid-section {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 30px 140px ;
+    padding: 30px 10%; /* Responsive padding */
 }
 
-.add-section{
+.add-section {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
 }
 
-.input-container{
-    width: 800px;
-    height: 660px;
-    margin: 83.5px 550px;
+.input-container {
+    width: 100%;
+    max-width: 800px;  /* Responsive width */
+    margin: 50px auto;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+    background-color: #2A2731;
 }
 
-.inputFields{
+/* Input fields */
+.inputFields {
     background-color: #2A2731;
     font-size: medium;
     color: #7B7883;
     border: #47454d solid 1px;
     border-radius: 5px;
     height: 40px;
-    width: 500px;
+    width: 88%; /* Full width for responsiveness */
+    max-width: 500px; /* Ensure it doesn’t get too wide */
     padding-left: 15px;
     transition: border 0.1s ease;
 }
 
-.inputFields:focus{
-    border: #b4aec4 solid 1px;
-}
-
-.uploadFields{
+.inputFields1 {
     background-color: #2A2731;
     font-size: medium;
     color: #7B7883;
     border: #47454d solid 1px;
     border-radius: 5px;
     height: 40px;
-    width: 500px;
+    width: 95%; /* Full width for responsiveness */
+    max-width: 500px; /* Ensure it doesn’t get too wide */
+    padding-left: 15px;
+    transition: border 0.1s ease;
+    appearance: none;
 }
 
-.uploadFields{
-    background-color: #2A2731;
-    font-size: medium;
-    color: #7B7883;
-    border: #47454d solid 1px;
-    border-radius: 5px;
-    height: 40px;
-    width: 500px;
-}
+.inputFields:focus, .inputFields1:focus{
+    border-color: #7B7883; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+  }
 
 .custom-button {
     display: inline-block;
@@ -70,12 +73,69 @@
     text-align: center;
     transition: background-color 0.3s ease;
     margin-right: 10px;
-  }
-  .file-name{
+}
+
+.custom-button-sbmit{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2A2731;
+    color: #7B7883;
+    border: #47454d solid 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+    width: 250px;
+}
+
+.file-name {
     font-size: 14px;
-  }
-  
-  .custom-button:hover {
+}
+
+.custom-button:hover, .custom-button-sbmit:hover{
     background-color: #b4aec4;
     color: #2A2731;
-  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .input-container {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 992px) {
+    .input-container {
+        max-width: 600px;
+    }
+
+    .mid-section {
+        padding: 30px 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .input-container {
+        max-width: 500px;
+    }
+
+    .inputFields, .uploadFields {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .input-container {
+        max-width: 100%; /* Full width on mobile screens */
+        margin: 20px;
+    }
+
+    .inputFields, .custom-button {
+        width: 100%; /* Buttons and inputs take full width on mobile */
+    }
+
+    .file-name {
+        font-size: 12px;
+    }
+}

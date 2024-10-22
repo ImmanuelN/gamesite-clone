@@ -1,9 +1,9 @@
-.browse-bar-main{
+.browse-bar-main {
     background-color: #2A2731;
     padding-top: 65px;
 }
 
-.browse-bar-top{
+.browse-bar-top {
     padding-left: 200px;
     padding-top: 10px;
     padding-bottom: 20px;
@@ -13,8 +13,8 @@
     height: 5dvh;
 }
 
-.add-button{
-    background-color:#7B7883;
+.add-button {
+    background-color: #7B7883;
     color: #121015;
     width: 140px;
     height: 40px;
@@ -25,33 +25,32 @@
     transition-duration: 300ms;
 }
 
-.add-button:hover{
+.add-button:hover {
     background-color: #fafafa;
-    color: #7B7883;;
+    color: #7B7883;
 }
 
-.browsbar-scroller-main{
+.browsbar-scroller-main {
     background-color: #201D27;
     height: auto;
-    padding: 40px 40px 0px 40px;
+    padding: 40px;
 }
 
-.sliding-cards{
+.sliding-cards {
     width: auto;
     display: flex;
     gap: 30px;
     align-items: center;
     overflow-x: auto;
-    overflow-inline: auto;
     padding-bottom: 20px;
 }
 
-.Title{
+.Title {
     padding-left: 815px;
     padding-bottom: 15px;
 }
 
-.card{
+.card {
     background-color: #121015;
     display: flex;
     flex-direction: column;
@@ -65,7 +64,7 @@
     transition-duration: 300ms ease-in-out;
 }
 
-.cardlogo{
+.cardlogo {
     padding-top: 15px;
     height: 50px;
     color: white;
@@ -73,34 +72,129 @@
     object-fit: contain;
 }
 
-.card:hover{
+.card:hover {
     height: 60px;
 }
 
-/* Scrollbar width */
+/* Scrollbar styles */
 ::-webkit-scrollbar {
-    height: 12px; /* Adjust the height for horizontal scrollbars */
-  }
-  
-  /* Scrollbar track (background) */
-  ::-webkit-scrollbar-track {
-    background: #1a1a1a; /* Dark background for the track */
-    border-radius: 10px;  /* Rounded edges for the track */
-  }
-  
-  /* Scrollbar thumb (the draggable part) */
-  ::-webkit-scrollbar-thumb {
-    background-color: #888; /* Gray color for the scrollbar thumb */
-    border-radius: 10px;     /* Rounded edges */
-  }
-  
-  /* Hover effect for the scrollbar thumb */
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Darker shade when hovered */
-  }
-  
-  /* For Firefox, use scrollbar-width and scrollbar-color */
-  html {
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+html {
     scrollbar-width: thin;
     scrollbar-color: #888 #1a1a1a;
-  }
+}
+
+/* Media Queries for Laptops and Tablets */
+
+/* For smaller laptop screens (max-width: 1200px) */
+@media (max-width: 1440px) {
+    .browse-bar-top {
+        padding-left: 650px; /* Reduce left padding */
+        gap: 100px; /* Adjust gap */
+    }
+
+    .Title {
+        padding-left: 560px; /* Adjust title padding */
+    }
+
+    .card {
+        width: 280px; /* Adjust card width */
+    }
+}
+
+/* For smaller laptop screens (max-width: 1200px) */
+@media (max-width: 1200px) {
+    .browse-bar-top {
+        padding-left: 100px; /* Reduce left padding */
+        gap: 100px; /* Adjust gap */
+    }
+
+    .Title {
+        padding-left: 330px; /* Adjust title padding */
+    }
+
+    .card {
+        width: 280px; /* Adjust card width */
+    }
+}
+
+/* For large tablets and smaller laptops (max-width: 992px) */
+@media (max-width: 992px) {
+    .browse-bar-top {
+        padding-left: 100px; /* Reduce left padding further */
+        gap: 50px; /* Reduce gap between elements */
+    }
+
+    .Title {
+        padding-left: 370px; /* Adjust padding */
+    }
+
+    .card {
+        width: 240px; /* Make card smaller */
+    }
+
+    .add-button {
+        width: 120px; /* Adjust button size */
+    }
+}
+
+/* For tablets and medium screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .browse-bar-top {
+        padding-left: 50px; /* Reduce padding further */
+        gap: 30px; /* Minimal gap */
+        flex-wrap: wrap; /* Wrap elements for tablet */
+    }
+
+    .Title {
+        padding-left: 0px;
+        text-align: center; /* Center the title for smaller screens */
+    }
+
+    .card {
+        width: 200px; /* Make cards smaller */
+    }
+
+    .add-button {
+        width: 100px; /* Adjust button size */
+    }
+}
+
+/* For extra small screens like phones (max-width: 576px) */
+@media (max-width: 576px) {
+    .browse-bar-top {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-start;
+        gap: 10px; /* Minimal gap */
+    }
+
+    .Title {
+        padding-left: 0px;
+        text-align: center; /* Center the title for smaller screens */
+    }
+
+    .add-button {
+        width: 90px; /* Smaller button size */
+        font-size: 10px;
+    }
+
+    .sliding-cards {
+        gap: 10px; /* Smaller gap between cards */
+    }
+
+    .card {
+        width: 150px; /* Smallest card size */
+    }
+}

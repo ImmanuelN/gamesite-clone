@@ -1,4 +1,4 @@
-.navbar-background{
+.navbar-background {
     background-color: #121015;
     position: fixed;
     z-index: 1000;
@@ -9,46 +9,48 @@
 .link-no-style {
     text-decoration: none;
     color: inherit;
-  }
+}
 
-.navbar-inside{
-    padding: 0px;
+.navbar-inside {
+    padding: 0;
     height: 56px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.left-side{
+/* Left and right side adjustments */
+.left-side {
     display: flex;
     justify-content: space-between;
-    
     padding-left: 20px;
-    width: 40px;
+    width: auto;
 }
 
-.right-side{
+.right-side {
     display: flex;
     justify-content: space-between;
     gap: 50px;
 }
 
-.logo{
+.logo {
     height: 30px;
     color: white;
 }
 
-.menu{
-    font-weight:bold;
+.menu {
+    font-weight: bold;
     font-size: 30px;
 }
 
-.SearchBar{
+.SearchBar {
     margin: 5px;
     padding-left: 20px;
     border-radius: 6px;
-    width: 552px;
+    width: 100%;
+    max-width: 552px;
     height: 36px;
     background-color: #2A2731;
     font-size: medium;
@@ -56,8 +58,8 @@
     border: none;
 }
 
-.nav-buttons{
-    background-color:#121015;
+.nav-buttons {
+    background-color: #121015;
     color: #7B7883;
     width: 90px;
     height: 56px;
@@ -65,28 +67,90 @@
     transition: 0.1s ease-out;
     align-items: center;
     font-size: large;
+    cursor: pointer;
 }
 
-.nav-buttons:hover{
+.nav-buttons:hover {
     border-bottom: #7B7883 1px solid;
 }
 
-.nav-buttons-logo{
-    background-color:#121015;
+.nav-buttons-logo {
+    background-color: #121015;
     color: #7B7883;
     width: 140px;
     height: 56px;
     border: none;
 }
 
-.nav-buttons-logo:hover{
+.nav-buttons-logo:hover {
     border-bottom: #7B7883 1px solid;
 }
 
-.box{
+.box {
     display: flex;
     align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
     gap: 4px;
+}
+
+/* Responsive adjustments using media queries */
+
+/* Tablet and below */
+@media (max-width: 992px) {
+    .right-side {
+        gap: 30px; /* Reduce gap between buttons */
+    }
+
+    .SearchBar {
+        max-width: 400px; /* Make search bar smaller */
+    }
+
+    .menu {
+        font-size: 24px;
+    }
+}
+
+/* Mobile screens (below 768px) */
+@media (max-width: 768px) {
+    .navbar-inside {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align left */
+        height: auto;
+        padding: 10px;
+    }
+
+    .left-side, .right-side {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .right-side {
+        display: none; /* Hide the right-side links on small screens */
+    }
+
+    .SearchBar {
+        width: 100%; /* Full width search bar */
+        margin: 10px 0;
+    }
+
+    .nav-buttons, .nav-buttons-logo {
+        width: auto; /* Let buttons take natural width */
+        font-size: 18px;
+    }
+}
+
+/* Extra small screens (below 576px) */
+@media (max-width: 576px) {
+    .navbar-inside {
+        padding: 5px;
+    }
+
+    .menu {
+        font-size: 20px; /* Smaller menu font */
+    }
+
+    .SearchBar {
+        font-size: small;
+    }
 }

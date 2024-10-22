@@ -1,26 +1,28 @@
-.section-main{
+.section-main {
     padding: 0px 200px 20px 200px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 35px;
-    width: auto;  
+    width: 100%; /* Ensure it takes full width */
+    box-sizing: border-box; /* Prevents padding from adding extra width */
 }
 
 .game-pic{
-    width: 460px;
+    width: 453px;
     height: 258.75px;
     border-radius: 12px;
-    
+    object-fit: cover; /* Ensure image fits inside the container */
 }
 
-.card-info{
+.card-info {
     padding-top: 10px;
     display: flex;
     gap: 10px;
+    align-items: center; /* Aligns content vertically */
 }
 
-.dev-pic{
+.dev-pic {
     object-fit: contain;
     width: 35px;
     height: 35px;
@@ -28,20 +30,99 @@
     border: 1px solid;
 }
 
-.os-pic{
+.os-pic {
     padding-top: 10px;
     padding-left: 10px;
     width: 16px;
     height: 16px;
 }
 
-.developer{
+.developer {
     color: #7B7883;
     font-size: 13px;
     font-weight: bold;
 }
 
-.Game{
+.Game {
     font-size: 15px;
     font-weight: bold;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For screens 1024px and below*/
+@media (max-width: 1024px) {
+    .section-main {
+        gap: 20px; /* Reduce gap between items */
+        padding-left: 250px;
+    }
+
+    .Game {
+        font-size: 14px; /* Smaller game title font */
+    }
+
+    .developer {
+        font-size: 12px; /* Smaller developer name font */
+    }
+}
+
+/* For screens 992px and below (tablets) */
+@media (max-width: 992px) {
+    .section-main {
+        padding-left: 0px 100px 20px 100px; /* Reduce padding on smaller screens */
+        gap: 20px; /* Reduce gap between items */
+    }
+
+    .Game {
+        font-size: 14px; /* Smaller game title font */
+    }
+
+    .developer {
+        font-size: 12px; /* Smaller developer name font */
+    }
+}
+
+/* For screens 768px and below (mobile) */
+@media (max-width: 768px) {
+    .section-main {
+        padding: 0px 50px 20px 50px; /* Further reduce padding */
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center items */
+    }
+
+    .game-pic {
+        width: 100%; /* Full width on mobile */
+        max-width: 100%; /* Ensure it doesn't exceed the container */
+    }
+
+    .Game {
+        font-size: 13px; /* Adjust title font size */
+    }
+
+    .developer {
+        font-size: 11px; /* Adjust developer font size */
+    }
+
+    .card-info {
+        gap: 5px; /* Tighten gap between info items */
+    }
+}
+
+/* For extra small screens 576px and below */
+@media (max-width: 576px) {
+    .section-main {
+        padding: 0px 20px 20px 20px; /* Minimal padding */
+    }
+
+    .game-pic {
+        max-width: 100%; /* Ensure images are responsive */
+    }
+
+    .Game {
+        font-size: 12px; /* Smallest font size for game title */
+    }
+
+    .developer {
+        font-size: 10px; /* Smallest font size for developer */
+    }
 }

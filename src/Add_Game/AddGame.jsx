@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from '../config/firebase'; 
 import './AddGame.css';
+import { categories } from '../assets/categories';
+import '../assets/loader.css';
+import loader from '../assets/loader.svg'
 
 class AddGame extends Component {
   API_URL = "http://localhost:5038";
@@ -10,7 +15,9 @@ class AddGame extends Component {
     thumbnailFileName: 'No file chosen',
     gameFileName: 'No file chosen',
     thumbnailFile: null,
-    gameFile: null
+    gameFile: null,
+    uploading: false, // Track upload status
+    selectedCategory: '',
   };
 
   handleFileChange = (event, type) => {
@@ -24,28 +31,58 @@ class AddGame extends Component {
     }
   };
 
+  // Function to handle uploading files to Firebase
+  uploadFileToFirebase = async (file, filePath) => {
+    const fileRef = ref(storage, filePath);
+    await uploadBytes(fileRef, file);  // Upload the file
+    return await getDownloadURL(fileRef);  // Return the download URL
+  };
+
+  handleCategoryChange = (event) => {
+    this.setState({ selectedCategory: event.target.value });
+  };
+
   addClick = async () => {
-    const { gameName, gameDescription, thumbnailFile, gameFile } = this.state;
+    const { gameName, gameDescription,selectedCategory, thumbnailFile, gameFile } = this.state;
 
-    const data = new FormData();
-    data.append("newGame", gameName);
-    data.append("description", gameDescription);
-    if (thumbnailFile) data.append("thumbnail", thumbnailFile);
-    if (gameFile) data.append("gameFile", gameFile);
+    this.setState({ uploading: true });
 
-    try {
+    try { 
+      // Upload thumbnail and game file to Firebase Storage
+      const thumbnailUrl = await this.uploadFileToFirebase(thumbnailFile, `thumbnails/${thumbnailFile.name}`);
+      const gameFileUrl = await this.uploadFileToFirebase(gameFile, `games/${gameFile.name}`);
+  
+      const data = {
+        gameName,
+        gameDescription,
+        selectedCategory,
+        thumbnailUrl,  // Firebase storage URL for thumbnail
+        gameFileUrl,   // Firebase storage URL for game file
+      };
+
+      console.log("Game Data:", data);
+
+      // Send data to API
       const response = await fetch(`${this.API_URL}/api/gamehub/addGame`, {
         method: "POST",
-        body: data,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+
       const result = await response.json();
       console.log("Game Successfully Added", result);
     } catch (error) {
       console.error("Error adding game:", error);
+    } finally {
+      this.setState({ uploading: false });
     }
   };
 
   render() {
+    const { uploading } = this.state;
+
     return (
       <div className='main-page'>
         <div className='input-container'>
@@ -70,6 +107,20 @@ class AddGame extends Component {
                 value={this.state.gameDescription}
                 onChange={(e) => this.setState({ gameDescription: e.target.value })}
               />
+
+              <label>Category</label>
+              <select
+                className='inputFields1'
+                value={this.state.selectedCategory}
+                onChange={this.handleCategoryChange}
+              >
+                <option value="">Select a Category</option>
+                {categories.map((category) => (
+                  <option key={category.id} value={category.name}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
 
               <label>Upload Game Thumbnail</label>
               <div className="file-upload-wrapper">
@@ -101,9 +152,15 @@ class AddGame extends Component {
                 <span className="file-name">{this.state.gameFileName}</span>
               </div>
 
-              <button className='custom-button' onClick={this.addClick}>
+              <button className='custom-button-sbmit' onClick={this.addClick} disabled={uploading}>
                 Submit
               </button>
+
+              {uploading && (
+                <div className="loader-overlay">
+                  <img src={loader} alt="Loading..." style={{ width: '30px', height: '30px' }} />
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -1,29 +1,34 @@
-.down_arrow{
+.down_arrow {
     height: 10px;
     color: white;
 }
 
-.main{
+.main {
     display: flex;
     flex-direction: column;
-    padding: 80px 0 40px 200px;
+    padding: 80px 200px 40px 200px;
     row-gap: 30px;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box;
 }
 
-.top-bar{
+.top-bar {
     border-bottom: 2px solid #44414B;
     display: flex;
     gap: 10px;
-    width: 1450px;
+    width: 100%; /* Make width flexible */
+    max-width: 1450px;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    box-sizing: border-box;
 }
 
-.filter-button-top-empty{
-    background-color:#2A2731;
+.filter-button-top-empty {
+    background-color: #2A2731;
     border: none;
 }
 
-.filter-button-top{
-    background-color:#2A2731;
+.filter-button-top {
+    background-color: #2A2731;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     color: #e9e9e9;
@@ -35,24 +40,27 @@
     align-items: center;
     font-size: medium;
     transition: 0.3s ease-out;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
-.filter-button-top:hover{
-    background-color:#121015;
+.filter-button-top:hover {
+    background-color: #121015;
 }
 
-.low-bar{
+.low-bar {
     background-color: #201D27;
     padding: 10px;
     display: flex;
     gap: 10px;
     border-radius: 6px;
-    width: 1430px;
-    
+    width: 100%;
+    max-width: 1430px;
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Wrap items on smaller screens */
 }
 
-.filter-button-low{
-    background-color:#201D27;
+.filter-button-low {
+    background-color: #201D27;
     color: #ffffff;
     width: auto;
     height: 40px;
@@ -62,6 +70,88 @@
     font-size: large;
 }
 
-.filter-button-low:hover{
+.filter-button-low:hover {
     border-bottom: #7B7883 2px solid;
+}
+
+/* Media Queries for Responsiveness */
+/* For screens 1024px and below*/
+@media (max-width: 1024px) {
+    .main {
+        padding: 80px 0px 40px 40px; /* Adjust padding */
+    }
+
+    .top-bar {
+        width: 100%; /* Ensure full width on smaller screens */
+    }
+
+    .low-bar {
+        gap: 5px; /* Reduce gap between items */
+       width: 100%;
+    }
+
+    .filter-button-top, .filter-button-low {
+        font-size: medium; /* Adjust font size */
+    }
+}
+
+/* For screens 992px and below (tablets) */
+@media (max-width: 992px) {
+    .main {
+        padding: 80px 10px 40px 10px; /* Adjust padding */
+    }
+
+    .top-bar {
+        width: 100%; /* Ensure full width on smaller screens */
+    }
+
+    .low-bar {
+        gap: 5px; /* Reduce gap between items */
+    }
+
+    .filter-button-top, .filter-button-low {
+        font-size: medium; /* Adjust font size */
+    }
+}
+
+/* For screens 768px and below (mobile) */
+@media (max-width: 768px) {
+    .main {
+        padding: 80px 10px 40px 10px; /* Further reduce padding */
+    }
+
+    .top-bar {
+        width: 100%;
+        flex-wrap: wrap; /* Stack buttons on smaller screens */
+    }
+
+    .filter-button-top {
+        font-size: small; /* Adjust button font size */
+        padding-right: 10%;
+    }
+
+    .low-bar {
+        flex-direction: column; /* Stack filter buttons vertically */
+        width: 100%;
+    }
+
+    .filter-button-low {
+        font-size: medium; /* Adjust button font size */
+        width: 100%; /* Full width for buttons */
+    }
+}
+
+/* For extra small screens 576px and below */
+@media (max-width: 576px) {
+    .main {
+        padding: 60px 10 40px 10px; /* Minimal padding */
+    }
+
+    .top-bar, .low-bar {
+        width: 100%; /* Ensure full width */
+    }
+
+    .filter-button-top, .filter-button-low {
+        font-size: smaller; /* Further adjust button font size */
+    }
 }
