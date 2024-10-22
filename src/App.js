@@ -1,43 +1,24 @@
 import React from 'react';
-import {NavBar, BrowseBar, FilterOptions, GamesSection, } from "./components"
+import { NavBar} from "./components";
 import "./App.css";
-import { Component } from 'react';
+import Home from './Home/Home';
+import AddGame from './Add_Game/AddGame';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-class App extends Component{
-
-  constructor(props){
-    super(props);
-    this.state={
-      games:[]
-    }
-  }
-
-  API_URL ="http://localhost:5038";
-
-  componentDidMount(){
-    this.getGames();
-  }
-
-
-  async getGames(){
-    fetch(this.API_URL+"/api/gamehub/getGames").then(response=>response.json())
-    .then(data=>{
-      this.setState({games:data});
-    })
-  }
-
-
-  render = () => {
-    const{games}=this.state;
+const App = () => {
     return (
-      <div className="App">
-        <NavBar className="navbar" />
-        <BrowseBar />
-        <FilterOptions />
-        <GamesSection games={games}/>
-      </div>
+      <Router>
+        <div className="App">
+          <NavBar className="navbar" />
+          <div className='content'>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/add-game' element={<AddGame />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
     );
   }
-}
 
 export default App;

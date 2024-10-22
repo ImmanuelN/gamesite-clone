@@ -2,6 +2,7 @@ import React from 'react';
 import "./NavBar.css";
 import logo from '../images/joystick_4035533.png';
 import menu_icon from '../images/menu-01-stroke-rounded.svg';
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -11,10 +12,13 @@ const NavBar = () => {
         <div className='left-side'>
           <div>
             <button className='nav-buttons-logo'>
+              <Link to='/' className='link-no-style'>
               <div className='box'>
-              <img src ={logo} alt='GameHub Logo' className='logo'/>
-              GAMEHUB
+                  <img src ={logo} alt='GameHub Logo' className='logo'/>
+                  GAMEHUB
+                
               </div>
+              </Link>
             </button>
           </div>
           <div>

@@ -15,8 +15,8 @@ import {
   sportIcon, 
   arcadeIcon, 
   survivalIcon
-} from '../images/index.js'
-import { Navigate } from 'react-router-dom';
+} from '../images/index.js';
+import { Link } from 'react-router-dom';
 
 const BrowseBar = () => {
 
@@ -24,7 +24,9 @@ const BrowseBar = () => {
     <div className='browse-bar-main'>
       <div className='browse-bar-top'>
         <h4>GameHub's Store is an open platform to share your games with the world.</h4>
-        <button className='add-button'>Add Your Game</button>
+        <Link to='/add-game'>
+          <button className='add-button'>Add Your Game</button>
+        </Link>
       </div>
       <div className='browsbar-scroller-main'>
         <div className='Title'>

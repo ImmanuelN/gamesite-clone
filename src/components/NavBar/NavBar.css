@@ -6,6 +6,11 @@
     width: 100%;
 }
 
+.link-no-style {
+    text-decoration: none;
+    color: inherit;
+  }
+
 .navbar-inside{
     padding: 0px;
     height: 56px;

@@ -7,7 +7,7 @@ const GamesSection = ({games}) => {
   return (
     <div className='section-main'>
       {games.map(game=>
-        <div className='game-card'>
+        <div className='game-card' key={game._id}>
           <img src= {game.gamepic} alt='game-picture' className='game-pic'/>
           <div className='card-info'>
             <img src={game.devpic} alt='devPic0' className='dev-pic'/>

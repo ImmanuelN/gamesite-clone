@@ -1,0 +1,81 @@
+.main-page{
+    padding-top: 65px;
+    padding-bottom: 65px;
+    color: #9f9bac;
+}
+
+.mid-section{
+    align-items: center;
+    padding: 30px 140px ;
+}
+
+.add-section{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.input-container{
+    width: 800px;
+    height: 660px;
+    margin: 83.5px 550px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+}
+
+.inputFields{
+    background-color: #2A2731;
+    font-size: medium;
+    color: #7B7883;
+    border: #47454d solid 1px;
+    border-radius: 5px;
+    height: 40px;
+    width: 500px;
+    padding-left: 15px;
+    transition: border 0.1s ease;
+}
+
+.inputFields:focus{
+    border: #b4aec4 solid 1px;
+}
+
+.uploadFields{
+    background-color: #2A2731;
+    font-size: medium;
+    color: #7B7883;
+    border: #47454d solid 1px;
+    border-radius: 5px;
+    height: 40px;
+    width: 500px;
+}
+
+.uploadFields{
+    background-color: #2A2731;
+    font-size: medium;
+    color: #7B7883;
+    border: #47454d solid 1px;
+    border-radius: 5px;
+    height: 40px;
+    width: 500px;
+}
+
+.custom-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2A2731;
+    color: #7B7883;
+    border: #47454d solid 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+  }
+  .file-name{
+    font-size: 14px;
+  }
+  
+  .custom-button:hover {
+    background-color: #b4aec4;
+    color: #2A2731;
+  }
