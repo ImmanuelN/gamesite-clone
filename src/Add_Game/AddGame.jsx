@@ -4,7 +4,8 @@ import { storage } from '../config/firebase';
 import './AddGame.css';
 import { categories } from '../assets/categories';
 import '../assets/loader.css';
-import loader from '../assets/loader.svg'
+import loader from '../assets/loader.svg';
+import botImg from '../components/images/bot2.svg'
 
 class AddGame extends Component {
   API_URL = "http://localhost:5038";
@@ -88,8 +89,8 @@ class AddGame extends Component {
         <div className='input-container'>
           <div className='mid-section'>
             <div className='add-section'>
-              <h1>Add a Game</h1>
-
+              <img src={botImg} alt='bot' className='botImg'/>
+              <h1>Upload Your Game </h1>
               <label>Name</label>
               <input
                 className='inputFields'

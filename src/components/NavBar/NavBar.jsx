@@ -13,11 +13,10 @@ const NavBar = () => {
           <div>
             <button className='nav-buttons-logo'>
               <Link to='/' className='link-no-style'>
-              <div className='box'>
-                  <img src ={logo} alt='GameHub Logo' className='logo'/>
-                  GAMEHUB
-                
-              </div>
+                <div className='box'>
+                    <img src ={logo} alt='GameHub Logo' className='logo'/>
+                    GAMEHUB
+                </div>
               </Link>
             </button>
           </div>
@@ -43,14 +42,18 @@ const NavBar = () => {
 
         <div className='right-side'>
           <div>
-            <button className='nav-buttons'>
-              Login
-            </button>
+            <Link to='/login'>
+              <button className='nav-buttons'>
+                Login
+              </button>
+            </Link>
           </div>
           <div>
+          <Link to='/sign-up'>
             <button className='nav-buttons'>
               SignUp
             </button>
+            </Link>
           </div>
         </div>
       </div>
