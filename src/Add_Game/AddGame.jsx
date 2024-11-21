@@ -3,8 +3,8 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from '../config/firebase'; 
 import './AddGame.css';
 import { categories } from '../assets/categories';
-import '../assets/loader.css';
-import loader from '../assets/loader.svg';
+import '../assets/loader/loader.css';
+import loader from '../assets/loader/loader.svg';
 import botImg from '../components/images/bot2.svg'
 
 class AddGame extends Component {

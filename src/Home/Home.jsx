@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowseBar, FilterOptions, GamesSection } from "../components/index";
-import Loader from '../assets/loader.svg';
-import '../assets/loader.css';
+import Loader from '../assets/loader/loader.svg';
+import '../assets/loader/loader.css';
 
 class Home extends Component {
   constructor(props) {
